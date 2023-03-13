@@ -1,0 +1,9 @@
+rootProject.name = 'assignment-application'
+
+include ':adapter'
+include ':adapter:database-adapter'
+include ':application'
+include ':service'
+include ':test'
+include ':test:integration-test'
+include ':web'

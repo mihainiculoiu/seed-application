@@ -1,0 +1,95 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java-test-fixtures'
+}
+
+allprojects {
+    group = 'com.veracity.assignment'
+    version = project.hasProperty('releaseVersion') ? "${releaseVersion}" : '0.0.0-local'
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+subprojects {
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'java-test-fixtures'
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    configurations {
+        provided
+        runtime.extendsFrom provided
+        testCompile.extendsFrom provided
+    }
+
+    ext['liquibase.version'] = "${liquibaseVersion}"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://repo.spring.io/milestone"
+            allowInsecureProtocol = true
+        }
+        maven {
+            url "https://repository.jboss.org/maven2"
+        }
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled true
+            html.enabled false
+        }
+    }
+
+    dependencies {
+        implementation "org.springframework.boot:spring-boot-starter-web"
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation "org.springframework.boot:spring-boot-starter-actuator"
+        implementation "org.springframework.boot:spring-boot-starter-security"
+
+        implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+        annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+        annotationProcessor "javax.annotation:javax.annotation-api"
+
+        annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+
+        implementation "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testFixturesImplementation "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation("org.springframework.boot:spring-boot-starter-test") {
+            exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+        }
+
+        testImplementation "io.rest-assured:rest-assured"
+        testImplementation "io.rest-assured:spring-mock-mvc"
+
+        runtimeOnly 'com.h2database:h2'
+        runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+    }
+
+    test {
+        useJUnitPlatform() {
+            excludeEngines 'junit-vintage'
+        }
+        finalizedBy "jacocoTestReport"
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+}

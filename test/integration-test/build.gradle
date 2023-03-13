@@ -1,0 +1,13 @@
+dependencies {
+    testImplementation(project(":adapter:database-adapter"))
+    testImplementation(project(":service"))
+    testImplementation(project(":web"))
+
+    testImplementation(testFixtures(project(":adapter:database-adapter")))
+    testImplementation(testFixtures(project(":service")))
+    testImplementation(testFixtures(project(":web")))
+
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
+    testImplementation 'com.github.tomakehurst:wiremock-jre8-standalone:2.32.0'
+}

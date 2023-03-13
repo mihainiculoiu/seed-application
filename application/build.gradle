@@ -1,0 +1,25 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'java'
+    id 'maven-publish'
+}
+
+bootJar {
+    archivesBaseName = 'assignment-application'
+    mainClass.set('com.veracityid.assignment.Application')
+}
+
+springBoot {
+    buildInfo()
+}
+
+testFixturesJar {
+    destinationDirectory = file("${buildDir}/libs/fixtures")
+}
+
+dependencies {
+    implementation project(':adapter')
+    implementation project(':adapter:database-adapter')
+    implementation project(':service')
+    implementation project(':web')
+}

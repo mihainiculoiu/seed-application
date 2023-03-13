@@ -1,0 +1,9 @@
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "org.liquibase:liquibase-core:${liquibaseVersion}"
+    implementation "com.mattbertolini:liquibase-slf4j:${liquibaseSlf4jVersion}"
+
+    implementation project(":service")
+    testImplementation testFixtures(project(':service'))
+    testFixturesImplementation(testFixtures(project(":service")))
+}
