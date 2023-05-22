@@ -6,7 +6,7 @@ plugins {
 
 bootJar {
     archivesBaseName = 'assignment-application'
-    mainClass.set('com.veracityid.assignment.Application')
+    mainClass.set('com.softium.assignment.Application')
 }
 
 springBoot {
@@ -20,6 +20,6 @@ testFixturesJar {
 dependencies {
     implementation project(':adapter')
     implementation project(':adapter:database-adapter')
-    implementation project(':service')
+    implementation project(':domain')
     implementation project(':web')
 }

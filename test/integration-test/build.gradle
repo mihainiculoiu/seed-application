@@ -1,10 +1,10 @@
 dependencies {
     testImplementation(project(":adapter:database-adapter"))
-    testImplementation(project(":service"))
+    testImplementation(project(":domain"))
     testImplementation(project(":web"))
 
     testImplementation(testFixtures(project(":adapter:database-adapter")))
-    testImplementation(testFixtures(project(":service")))
+    testImplementation(testFixtures(project(":domain")))
     testImplementation(testFixtures(project(":web")))
 
     testImplementation 'org.springframework.security:spring-security-test'

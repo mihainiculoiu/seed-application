@@ -4,7 +4,7 @@ plugins {
 }
 
 allprojects {
-    group = 'com.veracity.assignment'
+    group = 'com.softium.assignment'
     version = project.hasProperty('releaseVersion') ? "${releaseVersion}" : '0.0.0-local'
 }
 

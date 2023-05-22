@@ -1,7 +1,7 @@
 dependencies{
-    implementation project(":service")
-    testImplementation testFixtures(project(':service'))
-    testFixturesImplementation(testFixtures(project(":service")))
+    implementation project(":domain")
+    testImplementation testFixtures(project(':domain'))
+    testFixturesImplementation(testFixtures(project(":domain")))
 
     implementation "org.springdoc:springdoc-openapi-ui:${springDocsOpenApiVersion}"
 
