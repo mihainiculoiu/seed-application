@@ -5,8 +5,8 @@ plugins {
 }
 
 bootJar {
-    archivesBaseName = 'assignment-application'
-    mainClass.set('com.softium.assignment.Application')
+    archivesBaseName = 'seed-application'
+    mainClass.set('com.softium.seed.Application')
 }
 
 springBoot {

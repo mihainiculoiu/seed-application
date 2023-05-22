@@ -4,7 +4,7 @@ plugins {
 }
 
 allprojects {
-    group = 'com.softium.assignment'
+    group = 'com.softium.seed'
     version = project.hasProperty('releaseVersion') ? "${releaseVersion}" : '0.0.0-local'
 }
 

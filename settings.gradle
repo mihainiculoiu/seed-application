@@ -1,4 +1,4 @@
-rootProject.name = 'assignment-application'
+rootProject.name = 'seed-application'
 
 include ':adapter'
 include ':adapter:database-adapter'

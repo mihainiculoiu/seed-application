@@ -1,2 +1,2 @@
-# Assignment
-Assignment application
+# seed
+seed application
