@@ -1,11 +1,11 @@
 dependencies {
     testImplementation(project(":adapter:database-adapter"))
     testImplementation(project(":domain"))
-    testImplementation(project(":web"))
+    testImplementation(project(":api"))
 
     testImplementation(testFixtures(project(":adapter:database-adapter")))
     testImplementation(testFixtures(project(":domain")))
-    testImplementation(testFixtures(project(":web")))
+    testImplementation(testFixtures(project(":api")))
 
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
