@@ -18,8 +18,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(info = @Info(title = "seed API",
-        description = "Application that provides API for Assigment",
-        license = @License(name = "seed API", url = "https://assignemnt-application.index.html"),
+        description = "Application that provides API for Seed",
+        license = @License(name = "seed API", url = "https://seed-application.index.html"),
         version = "1.0",
         contact = @Contact(name = "Mihai Niculoiu", url = "https://www.linkedin.com/in/mihai-niculoiu/", email = "mihainiculoiu@gmail.com")))
 public class SwaggerConfig {
