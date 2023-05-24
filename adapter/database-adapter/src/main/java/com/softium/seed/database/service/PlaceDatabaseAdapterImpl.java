@@ -15,7 +15,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PlaceDatabaseAdapterImpl implements PlaceDatabaseAdapter {
 
-    public final String PLACE_NOT_FOUND_BY_ID_ERROR_MESSAGE = "Place not found for id: %s.";
+    public static final String PLACE_NOT_FOUND_BY_ID_ERROR_MESSAGE = "Place not found for id: %s.";
 
     private final PlaceRepository placeRepository;
     private final PlaceEntityMapper placeEntityMapper;
